@@ -1,0 +1,98 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    height: 100vh;
+    grid-template-areas:
+    "picture-one picture-two picture-three picture-three picture-three"
+    "picture-one picture-two picture-three picture-three picture-three"
+    "picture-four picture-four picture-three picture-three picture-three"
+    "picture-four picture-four picture-three picture-three picture-three"
+    "picture-six picture-six picture-five picture-five picture-five"
+    "picture-six picture-six picture-five picture-five picture-five";
+    gap: 5px;
+}
+.img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.picture:hover{
+    filter: grayscale(50%);
+    cursor: pointer;
+    transition: filter .5s;
+}
+.picture-one{
+    grid-area: picture-one;
+}
+.picture-two{
+    grid-area: picture-two;
+}
+.picture-three{
+    grid-area: picture-three;
+}
+.picture-four{
+    grid-area: picture-four;
+}
+.picture-five{
+    grid-area: picture-five;
+}
+.picture-six{
+    grid-area: picture-six;
+}
+.container-show{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0, 0.7);
+    top:  0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-100%);
+    transition: transform .4s ease-in;
+}
+.show{
+    transform: translateX(0);
+}
+.img-show{
+    height: 80%;
+    display: block;
+    object-fit: cover;
+    transform: scale(0);
+    transition: transform .2s .4s;
+    overflow: hidden;
+}
+.img-trasition{
+    transform: scale(1);
+}
+.img-text{
+    position: fixed;
+    color: #fff;
+    bottom: 40px;
+}
+.close-icon{
+    position: absolute;
+    color: #fff;
+    top: 20px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 30px;
+}
+@media (max-width: 767px){
+    .img-show{
+        width: 90%;
+    }
+    .close-icon{
+        font-size: 25px;
+    }
+}
